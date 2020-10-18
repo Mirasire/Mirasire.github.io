@@ -264,9 +264,9 @@
     
       <category term="icpc" scheme="http://mirasire.xyz/tags/ICPC/"/>
     
-      <category term="LuoGu" scheme="http://mirasire.xyz/tags/LUOGU/"/>
-    
       <category term="dp" scheme="http://mirasire.xyz/tags/DP/"/>
+    
+      <category term="LuoGu" scheme="http://mirasire.xyz/tags/LUOGU/"/>
     
   </entry>
   
@@ -296,11 +296,11 @@
     
       <category term="icpc" scheme="http://mirasire.xyz/tags/ICPC/"/>
     
+      <category term="LuoGu" scheme="http://mirasire.xyz/tags/LUOGU/"/>
+    
       <category term="dsu,bfs" scheme="http://mirasire.xyz/tags/DSU-BFS/"/>
     
       <category term="spfa" scheme="http://mirasire.xyz/tags/SPFA/"/>
-    
-      <category term="LuoGu" scheme="http://mirasire.xyz/tags/LUOGU/"/>
     
   </entry>
   
