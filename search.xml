@@ -1,6 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>「CSAPP学习笔记」 Data Lab</title>
+    <url>/2020/10/12/csappdatalab/</url>
+    <content><![CDATA[<p>观看《深入了解计算机系统》(CSAPP) 和 CMU15213 后的笔记，与做$\text{Data Lab}$时遇到的困难与解答。</p>
+<a id="more"></a>
+<blockquote>
+<p>书本 |《深入了解计算机系统》<br>网课地址<sup><a href="#fn_0" id="reffn_0">0</a></sup> | <a href="https://www.bilibili.com/video/av12977597" target="_blank" rel="noopener"><strong>Here</strong></a><br>Labs地址<sup><a href="#fn_1" id="reffn_1">1</a></sup> | <a href="http://csapp.cs.cmu.edu/3e/labs.html" target="_blank" rel="noopener"><strong>Here</strong></a></p>
+</blockquote>
+<h1 id="text-Bits-ints-and-float"><a href="#text-Bits-ints-and-float" class="headerlink" title="$\text{Bits, ints and float}$"></a>$\text{Bits, ints and float}$</h1><p>$\text{Data Lab}$ 主要用于加深了我对数字 在计算机中的<strong>编码($\text{encoding}$)表示</strong> 的印象，以及一些位($\text{bit}$)级别的转换和计算操作，帮助我更好的理解了，二进制中数字的表示和处理，所以笔记侧重记录于 <strong>二进制编码</strong> 与 <strong>用二进制的方式看待计算</strong>。</p>
+<h2 id="text-Bits-amp-Ints"><a href="#text-Bits-amp-Ints" class="headerlink" title="$\text{Bits &amp; Ints}$"></a>$\text{Bits &amp; Ints}$</h2><h3 id="无符号编码"><a href="#无符号编码" class="headerlink" title="无符号编码"></a>无符号编码</h3><blockquote>
+<p>$\text{Unsigned Encoding}$</p>
+</blockquote>
+<h3 id="二进制补码编码"><a href="#二进制补码编码" class="headerlink" title="二进制补码编码"></a>二进制补码编码</h3><blockquote>
+<p>$\text{Two’s-Complement Encoding}$</p>
+</blockquote>
+<h2 id="text-Float-2"><a href="#text-Float-2" class="headerlink" title="$\text{Float}$2"></a>$\text{Float}$<sup><a href="#fn_2" id="reffn_2">2</a></sup></h2><h3 id="用二进制表示小数"><a href="#用二进制表示小数" class="headerlink" title="用二进制表示小数"></a>用二进制表示小数</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">表示</th>
+<th style="text-align:center">$b_i$</th>
+<th style="text-align:center">$b_{i-1}$</th>
+<th style="text-align:center">…</th>
+<th style="text-align:center">$b_2$</th>
+<th style="text-align:center">$b_1$</th>
+<th style="text-align:center">$b_0$</th>
+<th style="text-align:center"><strong>.</strong></th>
+<th style="text-align:center">$b_{-1}$</th>
+<th style="text-align:center">$b_{-2}$</th>
+<th style="text-align:center">$b_{-3}$</th>
+<th style="text-align:center">…</th>
+<th style="text-align:center">$b**{-j}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">权值</td>
+<td style="text-align:center">$2^{i}$</td>
+<td style="text-align:center">$2^{i-1}$</td>
+<td style="text-align:center">…</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center">$\frac{1}{2}$</td>
+<td style="text-align:center">$\frac{1}{4}$</td>
+<td style="text-align:center">$\frac{1}{8}$</td>
+<td style="text-align:center">…</td>
+<td style="text-align:center">$2^{-j}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>例子:</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(10.101)_2 &= 1 \times 2^1 + 1 \times 2^{-1} + 1 \times 2^{-3} \\
+&= 2+0.5+0.125 \\
+&= (2.625)_{10}
+\end{aligned}</script><h3 id="text-IEEE-Standard-754"><a href="#text-IEEE-Standard-754" class="headerlink" title="$\text{IEEE  Standard  754}$"></a>$\text{IEEE  Standard  754}$</h3><blockquote>
+<p><strong><u>有意思</u></strong> 的是使用IEEE754标准，来编码的时候会出现 <code>+0</code> 和 <code>-0</code></p>
+</blockquote>
+<p>由于直接使用二进制表示小数的范围十分有限，所以 <code>C语言</code> 采用了 IEE754 标准来对浮点数($\text{Float}$)进行编码，来表示小数。</p>
+<p>浮点数的数学表示形式为 $\text{Float} = {(-1)^s}{M}{2^E}$，其中$M$表示尾数($Mantissa$)<sup><a href="#fn_4" id="reffn_4">4</a></sup>，$E$表示指数($Exponent$)，$s$表示符号，含义同二进制补码中的符号位($sign \ bit$)。</p>
+<blockquote>
+<p>二进制例子:</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(1011.11111)_2 &= {(-1)^0}*{1.01111111}*{2^3} \\
+(-11011.11111)_2 &= {(-1)^1}*{1.101111111}*{2^4}
+\end{aligned}</script><p><strong>编码($\text{Encoding}$)</strong></p>
+<ul>
+<li>$\text{s = S}$</li>
+<li>$\text{exp = E - bias or 1 - bias}$<sup><a href="#fn_5" id="reffn_5">5</a></sup><ul>
+<li>$\text{bias}$<sup><a href="#fn_6" id="reffn_6">6</a></sup> $ \ = 2^{sizeof(exp)-1}-1$ </li>
+<li>32位的 $\text{bias}$ 为 127</li>
+<li>64位的 $\text{bias}$ 为 1023</li>
+</ul>
+</li>
+<li>$\text{frac = M}$</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">32位</th>
+<th style="text-align:center">64位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/img/csapp_datalab_04.png" alt="32_fencoding"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_05.png" alt="64_fencoding"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<blockquote>
+<p>根据 <strong>exp</strong> 的不同，我们被编码的值分为 <strong>三种</strong> 情况。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">exp</th>
+<th style="text-align:center">皆为0</th>
+<th style="text-align:center">既有0，又有1</th>
+<th style="text-align:center">皆为1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\text{Values}$</td>
+<td style="text-align:center">$\text{Denormalized}$</td>
+<td style="text-align:center">$\text{Normalized}$</td>
+<td style="text-align:center">$\text{Special}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+</blockquote>
+<h4 id="规格化-text-Normalized"><a href="#规格化-text-Normalized" class="headerlink" title="规格化($\text{Normalized}$)"></a>规格化($\text{Normalized}$)</h4><h4 id="非规格化-text-Denormalized"><a href="#非规格化-text-Denormalized" class="headerlink" title="非规格化($\text{Denormalized}$)"></a>非规格化($\text{Denormalized}$)</h4><h4 id="特殊值-text-Special"><a href="#特殊值-text-Special" class="headerlink" title="特殊值($\text{Special}$)"></a>特殊值($\text{Special}$)</h4><blockquote>
+<p>$\text{exp}$ <strong>全为0</strong></p>
+</blockquote>
+<ul>
+<li>$\infty \text{(Infinity)}$<ul>
+<li>$\text{frac}$ 全为0</li>
+<li>$\text{s = 0} \rightarrow +\infty$</li>
+<li>$\text{s = 1} \rightarrow -\infty$</li>
+</ul>
+</li>
+<li>$\text{Not-a-Number(NAN)}$<ul>
+<li>$\text{frac}$ 不全为0</li>
+</ul>
+</li>
+</ul>
+<h3 id="舍入-text-Rounding"><a href="#舍入-text-Rounding" class="headerlink" title="舍入($\text{Rounding}$)"></a>舍入($\text{Rounding}$)</h3><blockquote>
+<p>其他舍入方法详见 《CSAPP》 <del>其余舍入方式都很好理解</del></p>
+</blockquote>
+<p>IEEE754标准的默认取舍方式是 <em>向偶数舍入</em>($\text{round to even}$)，也称 <em>向最近舍入</em>($\text{round to the neartest}$)。<br>这种舍入方式的方式是 只有在被取舍部分为，当前的 <strong>中间值</strong> 时，向保留位的最近偶数位舍入，其余状况按照正常的’四舍五入’。</p>
+<blockquote>
+<p><strong>举个例子</strong><sup><a href="#fn_3" id="reffn_3">3</a></sup></p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">十进制</th>
+<th style="text-align:center">二进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/img/csapp_datalab_03.png" alt="d_nround"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_02.png" alt="b_nround"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="加法-text-Addition"><a href="#加法-text-Addition" class="headerlink" title="加法($\text{Addition}$)"></a>加法($\text{Addition}$)</h3><h3 id="乘法-text-Multipcation"><a href="#乘法-text-Multipcation" class="headerlink" title="乘法($\text{Multipcation}$)"></a>乘法($\text{Multipcation}$)</h3><h1 id="text-Data-Lab"><a href="#text-Data-Lab" class="headerlink" title="$\text{Data Lab}$"></a>$\text{Data Lab}$</h1><h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p><img src="/img/csapp_datalab_01.png" alt="The Puzzles"></p>
+<h3 id="text-datalab-handout"><a href="#text-datalab-handout" class="headerlink" title="$\text{datalab-handout}$"></a>$\text{datalab-handout}$</h3><blockquote>
+<p>右上角带星号(*) 的 为可执行文件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Makefile	- Makes btest, fshow, and ishow</span><br><span class="line">README		- Data Lab的介绍和使用</span><br><span class="line">bits.c		- 所有Puzzels所在的文件，即要补全的文件</span><br><span class="line">bits.h		- 头文件</span><br><span class="line">btest.c		- btest* 的源文件，详情可见Makefile</span><br><span class="line">  btest.h	- 用于编译btest</span><br><span class="line">  decl.c	- 用于编译btest</span><br><span class="line">  tests.c       - 用于编译btest</span><br><span class="line">  tests-header.c- 用于编译btest</span><br><span class="line">dlc*		- 用于检查 bits.c 是否规则 (注意: btest 不会检查规则)</span><br><span class="line">driver.pl*	- 用于自动打分，调用了 dlc+btest</span><br><span class="line">Driverhdrs.pm   - &quot;Beat the Prof&quot; 模式的头文件(可选，详见REAME)</span><br><span class="line">fshow.c		- 查看 Float 表示的工具的源代码</span><br><span class="line">ishow.c		- 查看 Int 表示的工具的源代码</span><br></pre></td></tr></table></figure>
+<h3 id="自测-使用工具"><a href="#自测-使用工具" class="headerlink" title="自测/使用工具"></a>自测/使用工具</h3><blockquote>
+<p>$\text{dlc/driver.pl}$</p>
+</blockquote>
+<h3 id="规则描述"><a href="#规则描述" class="headerlink" title="规则描述"></a>规则描述</h3><h2 id="text-Puzzles-笔记"><a href="#text-Puzzles-笔记" class="headerlink" title="$\text{Puzzles}$ 笔记"></a>$\text{Puzzles}$ 笔记</h2><h3 id="text-bitXor"><a href="#text-bitXor" class="headerlink" title="$\text{bitXor}$"></a>$\text{bitXor}$</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * bitXor - x^y using only ~ and &amp; </span></span><br><span class="line"><span class="comment"> *   Example: bitXor(4, 5) = 1</span></span><br><span class="line"><span class="comment"> *   Legal ops: ~ &amp;</span></span><br><span class="line"><span class="comment"> *   Max ops: 14</span></span><br><span class="line"><span class="comment"> *   Rating: 1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bitXor</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = (~x) &amp; y;</span><br><span class="line">    <span class="keyword">int</span> var2 = x &amp; (~y);</span><br><span class="line">    <span class="keyword">return</span> ~((~var1)&amp;(~var2));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="text-tmin"><a href="#text-tmin" class="headerlink" title="$\text{tmin}$"></a>$\text{tmin}$</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * tmin - return minimum two's complement integer </span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 4</span></span><br><span class="line"><span class="comment"> *   Rating: 1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">tmin</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>&lt;&lt;<span class="number">31</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="text-isTmax"><a href="#text-isTmax" class="headerlink" title="$\text{isTmax}$"></a>$\text{isTmax}$</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * isTmax - returns 1 if x is the maximum, two's complement number,</span></span><br><span class="line"><span class="comment"> *     and 0 otherwise </span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | +</span></span><br><span class="line"><span class="comment"> *   Max ops: 10</span></span><br><span class="line"><span class="comment"> *   Rating: 1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isTmax</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = ~x;</span><br><span class="line">    <span class="keyword">int</span> var2 = (~var1)+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> !((var1^var2)|(!var1));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="text-allOddbits"><a href="#text-allOddbits" class="headerlink" title="$\text{allOddbits}$"></a>$\text{allOddbits}$</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * allOddBits - return 1 if all odd-numbered bits in word set to 1</span></span><br><span class="line"><span class="comment"> *   where bits are numbered from 0 (least significant) to 31 (most significant)</span></span><br><span class="line"><span class="comment"> *   Examples allOddBits(0xFFFFFFFD) = 0, allOddBits(0xAAAAAAAA) = 1</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 12</span></span><br><span class="line"><span class="comment"> *   Rating: 2</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">allOddBits</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = (x &gt;&gt; <span class="number">16</span>) &amp; x;</span><br><span class="line">    <span class="keyword">int</span> var2 = (var1 &gt;&gt; <span class="number">8</span>) &amp; var1;</span><br><span class="line">    <span class="keyword">int</span> var3 = (var2 &gt;&gt; <span class="number">4</span>) &amp; var2;</span><br><span class="line">    <span class="keyword">int</span> var4 = (var3 &gt;&gt; <span class="number">2</span>) &amp; var3;</span><br><span class="line">    <span class="keyword">return</span> (var4&gt;&gt;<span class="number">1</span>)&amp;<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="text-negate"><a href="#text-negate" class="headerlink" title="$\text{negate}$"></a>$\text{negate}$</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * negate - return -x </span></span><br><span class="line"><span class="comment"> *   Example: negate(1) = -1.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 5</span></span><br><span class="line"><span class="comment"> *   Rating: 2</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">negate</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (~x)+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="text-isAsciiDigit"><a href="#text-isAsciiDigit" class="headerlink" title="$\text{isAsciiDigit}$"></a>$\text{isAsciiDigit}$</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * isAsciiDigit - return 1 if 0x30 &lt;= x &lt;= 0x39 (ASCII codes for characters '0' to '9')</span></span><br><span class="line"><span class="comment"> *   Example: isAsciiDigit(0x35) = 1.</span></span><br><span class="line"><span class="comment"> *            isAsciiDigit(0x3a) = 0.</span></span><br><span class="line"><span class="comment"> *            isAsciiDigit(0x05) = 0.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 15</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isAsciiDigit</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = !(x &gt;&gt; <span class="number">6</span>);</span><br><span class="line">    <span class="keyword">int</span> var2 = (x + <span class="number">0x10</span>) &gt;&gt; <span class="number">6</span>;</span><br><span class="line">    <span class="keyword">int</span> var3 = x &gt;&gt; <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> var4 = (x &gt;&gt; <span class="number">2</span>) | (x &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    var2 = var1 &amp; var2;</span><br><span class="line">    var4 = var3 &amp; var4;</span><br><span class="line">	<span class="keyword">return</span> var2 &amp; (~var4);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="text-conditional"><a href="#text-conditional" class="headerlink" title="$\text{conditional}$"></a>$\text{conditional}$</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * conditional - same as x ? y : z </span></span><br><span class="line"><span class="comment"> *   Example: conditional(2,4,5) = 4</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 16</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">conditional</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = !x;</span><br><span class="line">    <span class="keyword">int</span> var2 = (~var1) + <span class="number">1</span>;</span><br><span class="line">    var1 = ~var2;</span><br><span class="line">    <span class="keyword">return</span> (var2&amp;y)^y^z^(var1&amp;z);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="text-isLessOrEqual"><a href="#text-isLessOrEqual" class="headerlink" title="$\text{isLessOrEqual}$"></a>$\text{isLessOrEqual}$</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * isLessOrEqual - if x &lt;= y  then return 1, else return 0 </span></span><br><span class="line"><span class="comment"> *   Example: isLessOrEqual(4,5) = 1.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 24</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isLessOrEqual</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = x&gt;&gt;<span class="number">31</span>;</span><br><span class="line">    <span class="keyword">int</span> var2 = y&gt;&gt;<span class="number">31</span>;</span><br><span class="line">    <span class="keyword">int</span> var3 = !(x^y);</span><br><span class="line">    <span class="keyword">int</span> var4 = (~y)+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> var5 = ((x+var4)&gt;&gt;<span class="number">31</span>)&amp;<span class="number">1</span>; <span class="comment">//x-y &lt; 0</span></span><br><span class="line">    <span class="keyword">int</span> var7 = (var1^var2)&amp;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> var8 = var7&amp;var1; <span class="comment">//1 when x&lt;0 + y&gt;0</span></span><br><span class="line">    <span class="keyword">int</span> var9 = !(var7&amp;var2); <span class="comment">//0 when x&gt;0 + y&lt;0</span></span><br><span class="line">	<span class="keyword">return</span> (var8|var3|var5)&amp;var9;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="text-logicalNeg"><a href="#text-logicalNeg" class="headerlink" title="$\text{logicalNeg}$"></a>$\text{logicalNeg}$</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * logicalNeg - implement the ! operator, using all of </span></span><br><span class="line"><span class="comment"> *              the legal operators except !</span></span><br><span class="line"><span class="comment"> *   Examples: logicalNeg(3) = 0, logicalNeg(0) = 1</span></span><br><span class="line"><span class="comment"> *   Legal ops: ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 12</span></span><br><span class="line"><span class="comment"> *   Rating: 4 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">logicalNeg</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = (~x)+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> var2 = ((x&gt;&gt;<span class="number">31</span>)|(var1&gt;&gt;<span class="number">31</span>))&amp;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> (~var2)+<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="text-howManyBits"><a href="#text-howManyBits" class="headerlink" title="$\text{howManyBits}$"></a>$\text{howManyBits}$</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* howManyBits - return the minimum number of bits required to represent x in</span></span><br><span class="line"><span class="comment"> *             two's complement</span></span><br><span class="line"><span class="comment"> *  Examples: howManyBits(12) = 5</span></span><br><span class="line"><span class="comment"> *            howManyBits(298) = 10</span></span><br><span class="line"><span class="comment"> *            howManyBits(-5) = 4</span></span><br><span class="line"><span class="comment"> *            howManyBits(0)  = 1</span></span><br><span class="line"><span class="comment"> *            howManyBits(-1) = 1</span></span><br><span class="line"><span class="comment"> *            howManyBits(0x80000000) = 32</span></span><br><span class="line"><span class="comment"> *  Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *  Max ops: 90</span></span><br><span class="line"><span class="comment"> *  Rating: 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">howManyBits</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var = x^(x&lt;&lt;<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> s16 = (!!(var&gt;&gt;<span class="number">16</span>))&lt;&lt;<span class="number">4</span>;</span><br><span class="line">    <span class="keyword">int</span> b16 = var &gt;&gt; s16;</span><br><span class="line">    <span class="keyword">int</span> s8 = (!!(b16&gt;&gt;<span class="number">8</span>))&lt;&lt;<span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> b8 = b16 &gt;&gt; s8 &amp; <span class="number">0xff</span>;</span><br><span class="line">    <span class="keyword">int</span> s4 = (!!(b8&gt;&gt;<span class="number">4</span>))&lt;&lt;<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> b4 = b8 &gt;&gt; s4 &amp; <span class="number">0xf</span>;</span><br><span class="line">    <span class="keyword">int</span> s2 = (!!(b4&gt;&gt;<span class="number">2</span>))&lt;&lt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> b2 = b4 &gt;&gt; s2 &amp; <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> s1 = !!(b2&gt;&gt;<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> s16 + s8 + s4 + s2 + s1 + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="text-floatScale2"><a href="#text-floatScale2" class="headerlink" title="$\text{floatScale2}$"></a>$\text{floatScale2}$</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * floatScale2 - Return bit-level equivalent of expression 2*f for</span></span><br><span class="line"><span class="comment"> *   floating point argument f.</span></span><br><span class="line"><span class="comment"> *   Both the argument and result are passed as unsigned int's, but</span></span><br><span class="line"><span class="comment"> *   they are to be interpreted as the bit-level representation of</span></span><br><span class="line"><span class="comment"> *   single-precision floating point values.</span></span><br><span class="line"><span class="comment"> *   When argument is NaN, return argument</span></span><br><span class="line"><span class="comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while</span></span><br><span class="line"><span class="comment"> *   Max ops: 30</span></span><br><span class="line"><span class="comment"> *   Rating: 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">floatScale2</span><span class="params">(<span class="keyword">unsigned</span> uf)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> uf_s = uf&amp;<span class="number">0x80000000</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> uf_exp = (uf&gt;&gt;<span class="number">23</span>)&amp;<span class="number">0xff</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> uf_frac = uf&amp;<span class="number">0x007fffff</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> res;</span><br><span class="line">    <span class="keyword">if</span>(uf_exp == <span class="number">0xff</span> &amp;&amp; uf_frac != <span class="number">0</span>) res = uf^uf_s;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(uf_exp == <span class="number">0</span>) res = uf&lt;&lt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">unsigned</span> res_exp = uf_exp+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(res_exp &gt; <span class="number">0xff</span>) res = <span class="number">0x7f800000</span>; </span><br><span class="line">        <span class="keyword">else</span> res = (res_exp &lt;&lt; <span class="number">23</span>)|uf_frac;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res^uf_s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="text-floatFloat2int"><a href="#text-floatFloat2int" class="headerlink" title="$\text{floatFloat2int}$"></a>$\text{floatFloat2int}$</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * floatFloat2Int - Return bit-level equivalent of expression (int) f</span></span><br><span class="line"><span class="comment"> *   for floating point argument f.</span></span><br><span class="line"><span class="comment"> *   Argument is passed as unsigned int, but</span></span><br><span class="line"><span class="comment"> *   it is to be interpreted as the bit-level representation of a</span></span><br><span class="line"><span class="comment"> *   single-precision floating point value.</span></span><br><span class="line"><span class="comment"> *   Anything out of range (including NaN and infinity) should return</span></span><br><span class="line"><span class="comment"> *   0x80000000u.</span></span><br><span class="line"><span class="comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while</span></span><br><span class="line"><span class="comment"> *   Max ops: 30</span></span><br><span class="line"><span class="comment"> *   Rating: 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">floatFloat2Int</span><span class="params">(<span class="keyword">unsigned</span> uf)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> uf_s = !!(uf&gt;&gt;<span class="number">31</span>);</span><br><span class="line">    <span class="keyword">int</span> uf_E = ((uf &gt;&gt; <span class="number">23</span>) &amp; <span class="number">0xff</span>) - <span class="number">127</span>;</span><br><span class="line">    <span class="keyword">int</span> uf_frac = (uf &amp; <span class="number">0x007fffff</span>) | <span class="number">0x008fffff</span>;</span><br><span class="line">    <span class="keyword">int</span> res;</span><br><span class="line">    <span class="keyword">if</span>(uf_E &lt; <span class="number">0</span>) res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> right_shift = -(<span class="number">23</span>-uf_E);</span><br><span class="line">        <span class="keyword">if</span>(right_shift &gt; <span class="number">7</span>) res = <span class="number">0x80000000</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(right_shift &lt; <span class="number">0</span>) res = uf_frac &gt;&gt; (-right_shift);</span><br><span class="line">        <span class="keyword">else</span> res = uf_frac &lt;&lt; right_shift;</span><br><span class="line">        <span class="keyword">if</span>(uf_s) res = (~res)+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="text-floatPower2"><a href="#text-floatPower2" class="headerlink" title="$\text{floatPower2}$"></a>$\text{floatPower2}$</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * floatPower2 - Return bit-level equivalent of the expression 2.0^x</span></span><br><span class="line"><span class="comment"> *   (2.0 raised to the power x) for any 32-bit integer x.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *   The unsigned value that is returned should have the identical bit</span></span><br><span class="line"><span class="comment"> *   representation as the single-precision floating-point number 2.0^x.</span></span><br><span class="line"><span class="comment"> *   If the result is too small to be represented as a denorm, return</span></span><br><span class="line"><span class="comment"> *   0. If too large, return +INF.</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. Also if, while </span></span><br><span class="line"><span class="comment"> *   Max ops: 30 </span></span><br><span class="line"><span class="comment"> *   Rating: 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">floatPower2</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> inf = <span class="number">0x7f800000</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">exp</span> = x + <span class="number">127</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">exp</span> &gt;= <span class="number">255</span>) res = inf;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">exp</span> &lt; <span class="number">0</span>) res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> res = <span class="built_in">exp</span> &lt;&lt; <span class="number">23</span>;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br></pre></td></tr></table></figure>
+<h2 id="text-Self-Evaluate"><a href="#text-Self-Evaluate" class="headerlink" title="$\text{Self Evaluate}$"></a>$\text{Self Evaluate}$</h2><blockquote>
+<p>以下为使用 drivel.pl 对上述解答的打分截图</p>
+</blockquote>
+<p><img src="/img/csapp_datalab_done.png" alt="done"></p>
+<hr>
+<blockquote id="fn_0">
+<sup>0</sup>. 课程为CMU15213，来源 Bilibili<a href="#reffn_0" title="Jump back to footnote [0] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_1">
+<sup>1</sup>. CSAPP书本官网，此次为 Data Lab<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. IEE754标准，并不是所有CPU都支持，例如 Cell BE<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_3">
+<sup>3</sup>. CMU15213课件 “04-float.pdf”<a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_4">
+<sup>4</sup>. 尾数的范围 $[1.0 ,2.0)$<a href="#reffn_4" title="Jump back to footnote [4] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_5">
+<sup>5</sup>. 当exp全为0时，E = 1 - bias<a href="#reffn_5" title="Jump back to footnote [5] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_6">
+<sup>6</sup>. bias 即 偏移量<a href="#reffn_6" title="Jump back to footnote [6] in the text."> &#8617;</a>
+</blockquote>
+]]></content>
+      <categories>
+        <category>MOOC</category>
+        <category>CMU CS:APP</category>
+      </categories>
+      <tags>
+        <tag>csapp</tag>
+        <tag>notes</tag>
+        <tag>labs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>进行Hexo博客的迁移</title>
     <url>/2020/04/07/HEXO2/</url>
     <content><![CDATA[<p>对<strong>Hexo</strong>的博客进行<strong>迁移</strong>。</p>
@@ -1248,8 +1468,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
-        <tag>最大流</tag>
         <tag>HDUOJ</tag>
+        <tag>最大流</tag>
         <tag>最短路</tag>
       </tags>
   </entry>
@@ -1295,9 +1515,9 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
-        <tag>HDUOJ</tag>
         <tag>匈牙利算法</tag>
         <tag>并查集</tag>
+        <tag>HDUOJ</tag>
       </tags>
   </entry>
   <entry>
@@ -1364,8 +1584,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
-        <tag>最大流</tag>
         <tag>HDUOJ</tag>
+        <tag>最大流</tag>
       </tags>
   </entry>
   <entry>
@@ -1421,9 +1641,9 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
+        <tag>HDUOJ</tag>
         <tag>最大流</tag>
         <tag>拆点</tag>
-        <tag>HDUOJ</tag>
       </tags>
   </entry>
   <entry>
@@ -1929,9 +2149,9 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
+        <tag>HDUOJ</tag>
         <tag>最大流</tag>
         <tag>拆点</tag>
-        <tag>HDUOJ</tag>
       </tags>
   </entry>
   <entry>
