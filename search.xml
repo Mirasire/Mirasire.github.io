@@ -1039,8 +1039,8 @@ dp[i][j] = dp[i][j-1] + dp[i][j+1]</script><p>只需对边界($1,n$)进行特殊
       </categories>
       <tags>
         <tag>icpc</tag>
-        <tag>dp</tag>
         <tag>LuoGu</tag>
+        <tag>dp</tag>
       </tags>
   </entry>
   <entry>
@@ -1062,9 +1062,9 @@ dp[i][j] = dp[i][j-1] + dp[i][j+1]</script><p>只需对边界($1,n$)进行特殊
       </categories>
       <tags>
         <tag>icpc</tag>
-        <tag>LuoGu</tag>
         <tag>dsu,bfs</tag>
         <tag>spfa</tag>
+        <tag>LuoGu</tag>
       </tags>
   </entry>
   <entry>
@@ -1671,10 +1671,10 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       </categories>
       <tags>
         <tag>icpc</tag>
-        <tag>ABC</tag>
-        <tag>AtCoder</tag>
         <tag>数学</tag>
         <tag>idea</tag>
+        <tag>ABC</tag>
+        <tag>AtCoder</tag>
       </tags>
   </entry>
   <entry>
@@ -1706,10 +1706,10 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       </categories>
       <tags>
         <tag>icpc</tag>
-        <tag>xor</tag>
-        <tag>数位统计</tag>
         <tag>ABC</tag>
         <tag>AtCoder</tag>
+        <tag>xor</tag>
+        <tag>数位统计</tag>
       </tags>
   </entry>
   <entry>
@@ -1789,8 +1789,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
-        <tag>最大流</tag>
         <tag>HDUOJ</tag>
+        <tag>最大流</tag>
         <tag>最短路</tag>
       </tags>
   </entry>
@@ -1836,9 +1836,9 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
-        <tag>HDUOJ</tag>
         <tag>匈牙利算法</tag>
         <tag>并查集</tag>
+        <tag>HDUOJ</tag>
       </tags>
   </entry>
   <entry>
@@ -1905,8 +1905,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
-        <tag>最大流</tag>
         <tag>HDUOJ</tag>
+        <tag>最大流</tag>
       </tags>
   </entry>
   <entry>
@@ -1962,9 +1962,9 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
+        <tag>HDUOJ</tag>
         <tag>最大流</tag>
         <tag>拆点</tag>
-        <tag>HDUOJ</tag>
       </tags>
   </entry>
   <entry>
@@ -2340,8 +2340,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
         <category>胡搞瞎搞💥</category>
       </categories>
       <tags>
-        <tag>基础</tag>
         <tag>Datastructures</tag>
+        <tag>基础</tag>
         <tag>Exam</tag>
       </tags>
   </entry>
@@ -2470,9 +2470,9 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
+        <tag>HDUOJ</tag>
         <tag>最大流</tag>
         <tag>拆点</tag>
-        <tag>HDUOJ</tag>
       </tags>
   </entry>
   <entry>
@@ -2742,8 +2742,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
-        <tag>最小割</tag>
         <tag>LuoGu</tag>
+        <tag>最小割</tag>
         <tag>两者取一式问题</tag>
       </tags>
   </entry>
@@ -2925,9 +2925,9 @@ O(\log_2{n}) < O(n) < O(n\log_2{n}) < O(n^2) < O(n^3) < .... < O(2^n) < O(n!)</s
         <category>胡搞瞎搞💥</category>
       </categories>
       <tags>
-        <tag>基础</tag>
         <tag>Datastructures</tag>
         <tag>Learn</tag>
+        <tag>基础</tag>
       </tags>
   </entry>
   <entry>
@@ -3379,10 +3379,10 @@ O(\log_2{n}) < O(n) < O(n\log_2{n}) < O(n^2) < O(n^3) < .... < O(2^n) < O(n!)</s
         <category>胡搞瞎搞💥</category>
       </categories>
       <tags>
+        <tag>基础</tag>
         <tag>Programming Language</tag>
         <tag>Java</tag>
         <tag>快速上手</tag>
-        <tag>基础</tag>
       </tags>
   </entry>
   <entry>

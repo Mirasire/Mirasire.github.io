@@ -293,9 +293,9 @@
     
       <category term="icpc" scheme="http://mirasire.xyz/tags/ICPC/"/>
     
-      <category term="dp" scheme="http://mirasire.xyz/tags/DP/"/>
-    
       <category term="LuoGu" scheme="http://mirasire.xyz/tags/LUOGU/"/>
+    
+      <category term="dp" scheme="http://mirasire.xyz/tags/DP/"/>
     
   </entry>
   
@@ -325,11 +325,11 @@
     
       <category term="icpc" scheme="http://mirasire.xyz/tags/ICPC/"/>
     
-      <category term="LuoGu" scheme="http://mirasire.xyz/tags/LUOGU/"/>
-    
       <category term="dsu,bfs" scheme="http://mirasire.xyz/tags/DSU-BFS/"/>
     
       <category term="spfa" scheme="http://mirasire.xyz/tags/SPFA/"/>
+    
+      <category term="LuoGu" scheme="http://mirasire.xyz/tags/LUOGU/"/>
     
   </entry>
   
@@ -557,13 +557,13 @@
     
       <category term="icpc" scheme="http://mirasire.xyz/tags/ICPC/"/>
     
-      <category term="ABC" scheme="http://mirasire.xyz/tags/ABC/"/>
-    
-      <category term="AtCoder" scheme="http://mirasire.xyz/tags/ATCODER/"/>
-    
       <category term="数学" scheme="http://mirasire.xyz/tags/%E6%95%B0%E5%AD%A6/"/>
     
       <category term="idea" scheme="http://mirasire.xyz/tags/IDEA/"/>
+    
+      <category term="ABC" scheme="http://mirasire.xyz/tags/ABC/"/>
+    
+      <category term="AtCoder" scheme="http://mirasire.xyz/tags/ATCODER/"/>
     
   </entry>
   
@@ -593,13 +593,13 @@
     
       <category term="icpc" scheme="http://mirasire.xyz/tags/ICPC/"/>
     
-      <category term="xor" scheme="http://mirasire.xyz/tags/XOR/"/>
-    
-      <category term="数位统计" scheme="http://mirasire.xyz/tags/%E6%95%B0%E4%BD%8D%E7%BB%9F%E8%AE%A1/"/>
-    
       <category term="ABC" scheme="http://mirasire.xyz/tags/ABC/"/>
     
       <category term="AtCoder" scheme="http://mirasire.xyz/tags/ATCODER/"/>
+    
+      <category term="xor" scheme="http://mirasire.xyz/tags/XOR/"/>
+    
+      <category term="数位统计" scheme="http://mirasire.xyz/tags/%E6%95%B0%E4%BD%8D%E7%BB%9F%E8%AE%A1/"/>
     
   </entry>
   
@@ -667,9 +667,9 @@
     
       <category term="网络流" scheme="http://mirasire.xyz/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
-      <category term="最大流" scheme="http://mirasire.xyz/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
-    
       <category term="HDUOJ" scheme="http://mirasire.xyz/tags/HDUOJ/"/>
+    
+      <category term="最大流" scheme="http://mirasire.xyz/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
     
       <category term="最短路" scheme="http://mirasire.xyz/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
     
