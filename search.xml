@@ -414,11 +414,11 @@
 <p><del>负数的补码就是源码取反+1</del></p>
 </blockquote>
 <p><strong>代码：</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * negate - return -x </span></span><br><span class="line"><span class="comment"> *   Example: negate(1) = -1.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 5</span></span><br><span class="line"><span class="comment"> *   Rating: 2</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">negate</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (~x)+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * negate - return -x </span></span><br><span class="line"><span class="comment"> *   Example: negate(1) = -1.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 5</span></span><br><span class="line"><span class="comment"> *   Rating: 2</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">negate</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (~x)+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="text-isAsciiDigit"><a href="#text-isAsciiDigit" class="headerlink" title="$\text{isAsciiDigit}$"></a>$\text{isAsciiDigit}$</h3><p><strong>思路：</strong></p>
 <p>先判断是否是<code>0x30</code>，然后判断是否在 <code>0x0</code> ~ <code>0x9</code> 之间。</p>
 <p><strong>代码：</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * isAsciiDigit - return 1 if 0x30 &lt;= x &lt;= 0x39 (ASCII codes for characters '0' to '9')</span></span><br><span class="line"><span class="comment"> *   Example: isAsciiDigit(0x35) = 1.</span></span><br><span class="line"><span class="comment"> *            isAsciiDigit(0x3a) = 0.</span></span><br><span class="line"><span class="comment"> *            isAsciiDigit(0x05) = 0.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 15</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isAsciiDigit</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = !(x &gt;&gt; <span class="number">6</span>);</span><br><span class="line">    <span class="keyword">int</span> var2 = (x + <span class="number">0x10</span>) &gt;&gt; <span class="number">6</span>;</span><br><span class="line">    <span class="keyword">int</span> var3 = x &gt;&gt; <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> var4 = (x &gt;&gt; <span class="number">2</span>) | (x &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    var2 = var1 &amp; var2;</span><br><span class="line">    var4 = var3 &amp; var4;</span><br><span class="line">	<span class="keyword">return</span> var2 &amp; (~var4);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * isAsciiDigit - return 1 if 0x30 &lt;= x &lt;= 0x39 (ASCII codes for characters '0' to '9')</span></span><br><span class="line"><span class="comment"> *   Example: isAsciiDigit(0x35) = 1.</span></span><br><span class="line"><span class="comment"> *            isAsciiDigit(0x3a) = 0.</span></span><br><span class="line"><span class="comment"> *            isAsciiDigit(0x05) = 0.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 15</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isAsciiDigit</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = !(x &gt;&gt; <span class="number">6</span>);</span><br><span class="line">    <span class="keyword">int</span> var2 = (x + <span class="number">0x10</span>) &gt;&gt; <span class="number">6</span>;</span><br><span class="line">    <span class="keyword">int</span> var3 = x &gt;&gt; <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> var4 = (x &gt;&gt; <span class="number">2</span>) | (x &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    var2 = var1 &amp; var2;</span><br><span class="line">    var4 = var3 &amp; var4;</span><br><span class="line">    <span class="keyword">return</span> var2 &amp; (~var4);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="text-conditional"><a href="#text-conditional" class="headerlink" title="$\text{conditional}$"></a>$\text{conditional}$</h3><p><strong>思路：</strong></p>
 <p>利用 <code>xor</code> 中 $ x \oplus 0 = x$ 和 $x \oplus x = 0$ 的特性进行实现。</p>
 <p>所以可以得到一个表达式 $\text{ans = exp1^y^x^exp2}$，和下述表格。</p>
@@ -497,7 +497,7 @@
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * floatFloat2Int - Return bit-level equivalent of expression (int) f</span></span><br><span class="line"><span class="comment"> *   for floating point argument f.</span></span><br><span class="line"><span class="comment"> *   Argument is passed as unsigned int, but</span></span><br><span class="line"><span class="comment"> *   it is to be interpreted as the bit-level representation of a</span></span><br><span class="line"><span class="comment"> *   single-precision floating point value.</span></span><br><span class="line"><span class="comment"> *   Anything out of range (including NaN and infinity) should return</span></span><br><span class="line"><span class="comment"> *   0x80000000u.</span></span><br><span class="line"><span class="comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while</span></span><br><span class="line"><span class="comment"> *   Max ops: 30</span></span><br><span class="line"><span class="comment"> *   Rating: 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">floatFloat2Int</span><span class="params">(<span class="keyword">unsigned</span> uf)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> uf_s = !!(uf&gt;&gt;<span class="number">31</span>);</span><br><span class="line">    <span class="keyword">int</span> uf_E = ((uf &gt;&gt; <span class="number">23</span>) &amp; <span class="number">0xff</span>) - <span class="number">127</span>;</span><br><span class="line">    <span class="keyword">int</span> uf_frac = (uf &amp; <span class="number">0x007fffff</span>) | <span class="number">0x008fffff</span>;</span><br><span class="line">    <span class="keyword">int</span> res;</span><br><span class="line">    <span class="keyword">if</span>(uf_E &lt; <span class="number">0</span>) res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> right_shift = -(<span class="number">23</span>-uf_E);</span><br><span class="line">        <span class="keyword">if</span>(right_shift &gt; <span class="number">7</span>) res = <span class="number">0x80000000</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(right_shift &lt; <span class="number">0</span>) res = uf_frac &gt;&gt; (-right_shift);</span><br><span class="line">        <span class="keyword">else</span> res = uf_frac &lt;&lt; right_shift;</span><br><span class="line">        <span class="keyword">if</span>(uf_s) res = (~res)+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="text-floatPower2"><a href="#text-floatPower2" class="headerlink" title="$\text{floatPower2}$"></a>$\text{floatPower2}$</h3><script type="math/tex; mode=display">
 {(2)_{10}}^x = {(-1)^0}*{(1)_2}*{2^{1+x}}</script><p>按照$\text{IEEE754}$标准编码即可。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * floatPower2 - Return bit-level equivalent of the expression 2.0^x</span></span><br><span class="line"><span class="comment"> *   (2.0 raised to the power x) for any 32-bit integer x.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *   The unsigned value that is returned should have the identical bit</span></span><br><span class="line"><span class="comment"> *   representation as the single-precision floating-point number 2.0^x.</span></span><br><span class="line"><span class="comment"> *   If the result is too small to be represented as a denorm, return</span></span><br><span class="line"><span class="comment"> *   0. If too large, return +INF.</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. Also if, while </span></span><br><span class="line"><span class="comment"> *   Max ops: 30 </span></span><br><span class="line"><span class="comment"> *   Rating: 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">floatPower2</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> inf = <span class="number">0x7f800000</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">exp</span> = x + <span class="number">127</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">exp</span> &gt;= <span class="number">255</span>) res = inf;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">exp</span> &lt; <span class="number">0</span>) res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> res = <span class="built_in">exp</span> &lt;&lt; <span class="number">23</span>;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * floatPower2 - Return bit-level equivalent of the expression 2.0^x</span></span><br><span class="line"><span class="comment"> *   (2.0 raised to the power x) for any 32-bit integer x.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *   The unsigned value that is returned should have the identical bit</span></span><br><span class="line"><span class="comment"> *   representation as the single-precision floating-point number 2.0^x.</span></span><br><span class="line"><span class="comment"> *   If the result is too small to be represented as a denorm, return</span></span><br><span class="line"><span class="comment"> *   0. If too large, return +INF.</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. Also if, while </span></span><br><span class="line"><span class="comment"> *   Max ops: 30 </span></span><br><span class="line"><span class="comment"> *   Rating: 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">floatPower2</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> inf = <span class="number">0x7f800000</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">exp</span> = x + <span class="number">127</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">exp</span> &gt;= <span class="number">255</span>) res = inf;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">exp</span> &lt; <span class="number">0</span>) res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> res = <span class="built_in">exp</span> &lt;&lt; <span class="number">23</span>;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="text-Self-Evaluate"><a href="#text-Self-Evaluate" class="headerlink" title="$\text{Self Evaluate}$"></a>$\text{Self Evaluate}$</h2><blockquote>
 <p>以下为使用 drivel.pl 对上述解答的打分截图</p>
 </blockquote>
@@ -1185,8 +1185,8 @@ sum &= (1+n)*n/2  \quad  &x_0 + x_1 &= sum \quad  (x_0 > x_1 >= 0) \\
         <category>堆</category>
       </categories>
       <tags>
-        <tag>icpc</tag>
         <tag>Algorithm</tag>
+        <tag>icpc</tag>
         <tag>数据结构</tag>
         <tag>配对堆</tag>
       </tags>
@@ -1428,8 +1428,8 @@ sum &= (1+n)*n/2  \quad  &x_0 + x_1 &= sum \quad  (x_0 > x_1 >= 0) \\
         <category>堆</category>
       </categories>
       <tags>
-        <tag>icpc</tag>
         <tag>Algorithm</tag>
+        <tag>icpc</tag>
         <tag>数据结构</tag>
         <tag>二叉堆</tag>
       </tags>
@@ -1522,8 +1522,8 @@ sum &= (1+n)*n/2  \quad  &x_0 + x_1 &= sum \quad  (x_0 > x_1 >= 0) \\
         <category>树</category>
       </categories>
       <tags>
-        <tag>icpc</tag>
         <tag>Algorithm</tag>
+        <tag>icpc</tag>
         <tag>数据结构</tag>
         <tag>搜索树</tag>
       </tags>
@@ -1671,10 +1671,10 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       </categories>
       <tags>
         <tag>icpc</tag>
-        <tag>数学</tag>
-        <tag>idea</tag>
         <tag>ABC</tag>
         <tag>AtCoder</tag>
+        <tag>数学</tag>
+        <tag>idea</tag>
       </tags>
   </entry>
   <entry>
@@ -1706,10 +1706,10 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       </categories>
       <tags>
         <tag>icpc</tag>
-        <tag>ABC</tag>
-        <tag>AtCoder</tag>
         <tag>xor</tag>
         <tag>数位统计</tag>
+        <tag>ABC</tag>
+        <tag>AtCoder</tag>
       </tags>
   </entry>
   <entry>
@@ -1789,8 +1789,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
-        <tag>HDUOJ</tag>
         <tag>最大流</tag>
+        <tag>HDUOJ</tag>
         <tag>最短路</tag>
       </tags>
   </entry>
@@ -1836,9 +1836,9 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
+        <tag>HDUOJ</tag>
         <tag>匈牙利算法</tag>
         <tag>并查集</tag>
-        <tag>HDUOJ</tag>
       </tags>
   </entry>
   <entry>
@@ -1905,8 +1905,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
-        <tag>HDUOJ</tag>
         <tag>最大流</tag>
+        <tag>HDUOJ</tag>
       </tags>
   </entry>
   <entry>
@@ -1962,9 +1962,9 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
-        <tag>HDUOJ</tag>
         <tag>最大流</tag>
         <tag>拆点</tag>
+        <tag>HDUOJ</tag>
       </tags>
   </entry>
   <entry>
@@ -2143,8 +2143,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
         <category>计算几何</category>
       </categories>
       <tags>
-        <tag>icpc</tag>
         <tag>Algorithm</tag>
+        <tag>icpc</tag>
         <tag>数据结构</tag>
         <tag>线段树</tag>
         <tag>扫描线</tag>
@@ -2420,8 +2420,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
         <category>网络流</category>
       </categories>
       <tags>
-        <tag>icpc</tag>
         <tag>Algorithm</tag>
+        <tag>icpc</tag>
         <tag>图论</tag>
         <tag>最小费用最大流</tag>
       </tags>
@@ -2470,9 +2470,9 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
-        <tag>HDUOJ</tag>
         <tag>最大流</tag>
         <tag>拆点</tag>
+        <tag>HDUOJ</tag>
       </tags>
   </entry>
   <entry>
@@ -2626,8 +2626,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
         <category>最短路</category>
       </categories>
       <tags>
-        <tag>icpc</tag>
         <tag>Algorithm</tag>
+        <tag>icpc</tag>
         <tag>最短路</tag>
         <tag>图论</tag>
       </tags>
@@ -2689,8 +2689,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
         <category>网络流</category>
       </categories>
       <tags>
-        <tag>icpc</tag>
         <tag>Algorithm</tag>
+        <tag>icpc</tag>
         <tag>图论</tag>
         <tag>最小割</tag>
       </tags>
@@ -2742,8 +2742,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       <tags>
         <tag>icpc</tag>
         <tag>网络流</tag>
-        <tag>LuoGu</tag>
         <tag>最小割</tag>
+        <tag>LuoGu</tag>
         <tag>两者取一式问题</tag>
       </tags>
   </entry>
@@ -3267,8 +3267,8 @@ O(\log_2{n}) < O(n) < O(n\log_2{n}) < O(n^2) < O(n^3) < .... < O(2^n) < O(n!)</s
         <category>树</category>
       </categories>
       <tags>
-        <tag>icpc</tag>
         <tag>Algorithm</tag>
+        <tag>icpc</tag>
         <tag>Datastructures</tag>
         <tag>字符串</tag>
       </tags>
@@ -3523,8 +3523,8 @@ O(\log_2{n}) < O(n) < O(n\log_2{n}) < O(n^2) < O(n^3) < .... < O(2^n) < O(n!)</s
         <category>网络流</category>
       </categories>
       <tags>
-        <tag>icpc</tag>
         <tag>Algorithm</tag>
+        <tag>icpc</tag>
         <tag>最大流</tag>
         <tag>图论</tag>
       </tags>
@@ -3560,8 +3560,8 @@ O(\log_2{n}) < O(n) < O(n\log_2{n}) < O(n^2) < O(n^3) < .... < O(2^n) < O(n!)</s
         <category>网络流</category>
       </categories>
       <tags>
-        <tag>icpc</tag>
         <tag>Algorithm</tag>
+        <tag>icpc</tag>
         <tag>图论</tag>
         <tag>网络流基础</tag>
       </tags>
