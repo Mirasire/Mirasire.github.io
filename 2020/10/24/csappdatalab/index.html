@@ -53,24 +53,35 @@
 <meta name="keywords" content="csapp,notes,labs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「CSAPP学习笔记」 Data Lab">
-<meta property="og:url" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;2020&#x2F;10&#x2F;12&#x2F;csappdatalab&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;2020&#x2F;10&#x2F;24&#x2F;csappdatalab&#x2F;index.html">
 <meta property="og:site_name" content="MirasireのBlog">
 <meta property="og:description" content="观看《深入了解计算机系统》(CSAPP) 和 CMU15213 后的笔记，与做$\text{Data Lab}$时遇到的困难与解答。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_14.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_15.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_16.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_17.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_19.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_11.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_12.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_13.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_04.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_05.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_03.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_02.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_20.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_21.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_22.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_01.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_06.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_07.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_09.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_10.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_done.png">
-<meta property="og:updated_time" content="2020-10-21T10:08:46.238Z">
+<meta property="og:updated_time" content="2020-10-24T14:50:26.029Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_04.png">
-  <link rel="canonical" href="http://mirasire.xyz/2020/10/12/csappdatalab/">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;mirasire.xyz&#x2F;img&#x2F;csapp_datalab_14.png">
+  <link rel="canonical" href="http://mirasire.xyz/2020/10/24/csappdatalab/">
 
 
 <script id="page-configurations">
@@ -231,7 +242,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://mirasire.xyz/2020/10/12/csappdatalab/">
+    <link itemprop="mainEntityOfPage" href="http://mirasire.xyz/2020/10/24/csappdatalab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/main.gif">
@@ -255,16 +266,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-10-12 12:30:47" itemprop="dateCreated datePublished" datetime="2020-10-12T12:30:47+08:00">2020-10-12</time>
+              <time title="创建时间：2020-10-24 22:47:47 / 修改时间：22:50:26" itemprop="dateCreated datePublished" datetime="2020-10-24T22:47:47+08:00">2020-10-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-21 18:08:46" itemprop="dateModified" datetime="2020-10-21T18:08:46+08:00">2020-10-21</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -284,7 +289,7 @@
             </span>
 
           
-            <span id="/2020/10/12/csappdatalab/" class="post-meta-item leancloud_visitors" data-flag-title="「CSAPP学习笔记」 Data Lab" title="阅读次数">
+            <span id="/2020/10/24/csappdatalab/" class="post-meta-item leancloud_visitors" data-flag-title="「CSAPP学习笔记」 Data Lab" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -303,7 +308,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
-              <span>10 分钟</span>
+              <span>11 分钟</span>
             </span>
 
         </div>
@@ -328,7 +333,31 @@
 <h3 id="二进制补码编码"><a href="#二进制补码编码" class="headerlink" title="二进制补码编码"></a>二进制补码编码</h3><blockquote>
 <p>$\text{Two’s-Complement Encoding}$</p>
 </blockquote>
-<p>$\text{B2T(X) = } -X_w * 2^n + \sum_{i \leq 0}^{n-1}{X_i} \qquad X_w = \text{sign bit}$</p>
+<p>$\text{B2T(X) = } -X_w * 2^n + \sum_{i \leq 0}^{n-1}{X_i} \qquad (X_w = \text{sign bit})$</p>
+<h3 id="布尔代数"><a href="#布尔代数" class="headerlink" title="布尔代数"></a>布尔代数</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">$\text{And}$</th>
+<th style="text-align:center">$\text{Or}$</th>
+<th style="text-align:center">$\text{Not}$</th>
+<th style="text-align:center">$\text{Xor}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/img/csapp_datalab_14.png" alt="and_ba"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_15.png" alt="or_ba"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_16.png" alt="Not_ba"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_17.png" alt="xor_ba"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>实例如下</p>
+</blockquote>
+<p><img src="/img/csapp_datalab_19.png" alt="tmp_ba"></p>
 <h3 id="一些杂记"><a href="#一些杂记" class="headerlink" title="一些杂记"></a>一些杂记</h3><ul>
 <li>$\text{Unsigned}$<ul>
 <li>$U_{max} = \text{0xFFFFFFFF} = 2^{32}-1$</li>
@@ -336,10 +365,51 @@
 </ul>
 </li>
 <li>$\text{Two’s-Complement}$<ul>
-<li>$T_{min} = \text{0x80000000}$</li>
-<li>$T_{max} = \text{0x7FFFFFFF}$</li>
+<li>$T_{min} = 10000… = \text{0x80000000}$</li>
+<li>$T_{max} = 01111… = \text{0x7FFFFFFF}$</li>
 <li>$T_{min} = -T_{max}-1$</li>
-<li>$\text{-1 = 0xFFFFFFFF}$</li>
+<li>$abs(T_{min}) = T_{min}$ <code>overflow</code> </li>
+<li>$\text{0xFFFFFFFF} = -1$</li>
+</ul>
+</li>
+<li>$\text{U2T  &amp;  T2U}$<ul>
+<li>$U_{max} = T_{max} \ll 1 + 1$</li>
+</ul>
+</li>
+<li>位扩展($\text{Sign Extension}$)<ul>
+<li>扩展k位 = 向右<strong>复制k位符号位</strong></li>
+</ul>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">理论公式</th>
+<th style="text-align:center">正数位扩展</th>
+<th style="text-align:center">负数位扩展</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/img/csapp_datalab_11.png" alt="sign extension"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_12.png" alt="po_sex"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_13.png" alt="neg_sex"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><code>&gt;&gt;</code> 右移 ($\text{Right shift}$)<ul>
+<li>逻辑右移($\text{Logical shift}$)<ul>
+<li><strong>特点：左侧都填充 <code>0</code></strong></li>
+</ul>
+</li>
+<li>算数右移($\text{Arithmetic shift}$)<ul>
+<li><strong>特点：左侧都填充的为 <code>符号位</code></strong></li>
+<li><strong>C语言默认为算数右移</strong></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -516,7 +586,25 @@
 </tbody>
 </table>
 </div>
-<h3 id="加法-text-Addition"><a href="#加法-text-Addition" class="headerlink" title="加法($\text{Addition}$)"></a>加法($\text{Addition}$)</h3><h3 id="乘法-text-Multipcation"><a href="#乘法-text-Multipcation" class="headerlink" title="乘法($\text{Multipcation}$)"></a>乘法($\text{Multipcation}$)</h3><h1 id="text-Data-Lab"><a href="#text-Data-Lab" class="headerlink" title="$\text{Data Lab}$"></a>$\text{Data Lab}$</h1><h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p><img src="/img/csapp_datalab_01.png" alt="The Puzzles"></p>
+<h3 id="一些杂记-1"><a href="#一些杂记-1" class="headerlink" title="一些杂记"></a>一些杂记</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">乘法($\text{Multipcation}$)</th>
+<th style="text-align:center">加法($\text{Addition}$)</th>
+<th style="text-align:center">加法的解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/img/csapp_datalab_20.png" alt="mul_fl"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_21.png" alt="add_fl"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_22.png" alt="add2_fl"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="text-Data-Lab"><a href="#text-Data-Lab" class="headerlink" title="$\text{Data Lab}$"></a>$\text{Data Lab}$</h1><h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p><img src="/img/csapp_datalab_01.png" alt="The Puzzles"></p>
 <h3 id="text-datalab-handout"><a href="#text-datalab-handout" class="headerlink" title="$\text{datalab-handout}$"></a>$\text{datalab-handout}$</h3><blockquote>
 <p>右上角带星号(*) 的 为可执行文件</p>
 </blockquote>
@@ -619,6 +707,7 @@
 <li>使用除了 <code>int</code>和<code>unsigned</code> 以外的其他数据结构，例 <code>arrays</code>，<code>structs</code>，<code>unions</code>….</li>
 <li>使用任何浮点指针数据类型，运算符 或 常量。</li>
 </ol>
+<hr>
 <h2 id="text-Puzzles-笔记"><a href="#text-Puzzles-笔记" class="headerlink" title="$\text{Puzzles}$ 笔记"></a>$\text{Puzzles}$ 笔记</h2><h3 id="text-bitXor"><a href="#text-bitXor" class="headerlink" title="$\text{bitXor}$"></a>$\text{bitXor}$</h3><p><strong>思路：</strong></p>
 <p>$\textbf{xor}$ 为 <code>同0，异1</code>，<code>a&amp;b</code>只会保留 <strong>全为1</strong> 的，而 <code>(~a)&amp;b</code> 只会保留 <code>a0/b1</code> 的，所以答案是 <code>a0/b1 | a1/b0</code>，那么只要用 <code>&amp;</code> 和 <code>~</code> 来复现 <code>|</code> 即可。</p>
 <p><strong>代码：</strong></p>
@@ -677,8 +766,12 @@
 <p><strong>代码：</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * conditional - same as x ? y : z </span></span><br><span class="line"><span class="comment"> *   Example: conditional(2,4,5) = 4</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 16</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">conditional</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = !x;</span><br><span class="line">    <span class="keyword">int</span> var2 = (~var1) + <span class="number">1</span>;</span><br><span class="line">    var1 = ~var2;</span><br><span class="line">    <span class="keyword">return</span> (var2&amp;y)^y^z^(var1&amp;z);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="text-isLessOrEqual"><a href="#text-isLessOrEqual" class="headerlink" title="$\text{isLessOrEqual}$"></a>$\text{isLessOrEqual}$</h3><p><strong>思路：</strong></p>
+<p>分类讨论三种情况，分别为<code>同号</code>，<code>异号</code>，<code>相等</code>。<br>如果不考虑溢出(即<code>同号</code>情况)，显然$x-y \leq 0$。</p>
+<blockquote>
+<p>小提示：由于当 y = $T_{min}$ 时，转化为 -y 会溢出，但是如果限定为同号，则不会对判断造成影响。</p>
+</blockquote>
 <p><strong>代码：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * isLessOrEqual - if x &lt;= y  then return 1, else return 0 </span></span><br><span class="line"><span class="comment"> *   Example: isLessOrEqual(4,5) = 1.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 24</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isLessOrEqual</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = x&gt;&gt;<span class="number">31</span>;</span><br><span class="line">    <span class="keyword">int</span> var2 = y&gt;&gt;<span class="number">31</span>;</span><br><span class="line">    <span class="keyword">int</span> var3 = !(x^y);</span><br><span class="line">    <span class="keyword">int</span> var4 = (~y)+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> var5 = ((x+var4)&gt;&gt;<span class="number">31</span>)&amp;<span class="number">1</span>; <span class="comment">//x-y &lt; 0</span></span><br><span class="line">    <span class="keyword">int</span> var7 = (var1^var2)&amp;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> var8 = var7&amp;var1; <span class="comment">//1 when x&lt;0 + y&gt;0</span></span><br><span class="line">    <span class="keyword">int</span> var9 = !(var7&amp;var2); <span class="comment">//0 when x&gt;0 + y&lt;0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (var8|var3|var5)&amp;var9;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * isLessOrEqual - if x &lt;= y  then return 1, else return 0 </span></span><br><span class="line"><span class="comment"> *   Example: isLessOrEqual(4,5) = 1.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 24</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isLessOrEqual</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = x&gt;&gt;<span class="number">31</span>;</span><br><span class="line">    <span class="keyword">int</span> var2 = y&gt;&gt;<span class="number">31</span>;</span><br><span class="line">    <span class="keyword">int</span> var3 = !(x^y); <span class="comment">//x == y</span></span><br><span class="line">    <span class="keyword">int</span> var4 = (~y)+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> var5 = ((x+var4)&gt;&gt;<span class="number">31</span>)&amp;<span class="number">1</span>; <span class="comment">//x-y &lt; 0</span></span><br><span class="line">    <span class="keyword">int</span> var7 = (var1^var2)&amp;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> var8 = var7&amp;var1; <span class="comment">//1 when x&lt;0 + y&gt;0</span></span><br><span class="line">    <span class="keyword">int</span> var9 = !(var7&amp;var2); <span class="comment">//0 when x&gt;0 + y&lt;0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (var8|var3|var5)&amp;var9;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="text-logicalNeg"><a href="#text-logicalNeg" class="headerlink" title="$\text{logicalNeg}$"></a>$\text{logicalNeg}$</h3><p><strong>思路：</strong></p>
 <p>思路和 <code>isTmax</code> 相同，只有0的补码<code>^</code>源码 <code>= 0</code>，其余 <strong>最高位</strong> 都为<code>1</code>。</p>
 <p><strong>代码：</strong></p>
@@ -801,7 +894,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://mirasire.xyz/2020/10/12/csappdatalab/" title="「CSAPP学习笔记」 Data Lab">http://mirasire.xyz/2020/10/12/csappdatalab/</a>
+    <a href="http://mirasire.xyz/2020/10/24/csappdatalab/" title="「CSAPP学习笔记」 Data Lab">http://mirasire.xyz/2020/10/24/csappdatalab/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -868,7 +961,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#text-Bits-ints-and-float"><span class="nav-number">1.</span> <span class="nav-text">$\text{Bits, ints and float}$</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#text-Bits-amp-Ints"><span class="nav-number">1.1.</span> <span class="nav-text">$\text{Bits &amp; Ints}$</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无符号编码"><span class="nav-number">1.1.1.</span> <span class="nav-text">无符号编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制补码编码"><span class="nav-number">1.1.2.</span> <span class="nav-text">二进制补码编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些杂记"><span class="nav-number">1.1.3.</span> <span class="nav-text">一些杂记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-Float-2"><span class="nav-number">1.2.</span> <span class="nav-text">$\text{Float}$2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用二进制表示小数"><span class="nav-number">1.2.1.</span> <span class="nav-text">用二进制表示小数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-IEEE-Standard-754"><span class="nav-number">1.2.2.</span> <span class="nav-text">$\text{IEEE  Standard  754}$</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#规格化-text-Normalized"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">规格化($\text{Normalized}$)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非规格化-text-Denormalized"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">非规格化($\text{Denormalized}$)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特殊值-text-Special"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">特殊值($\text{Special}$)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#舍入-text-Rounding"><span class="nav-number">1.2.3.</span> <span class="nav-text">舍入($\text{Rounding}$)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加法-text-Addition"><span class="nav-number">1.2.4.</span> <span class="nav-text">加法($\text{Addition}$)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乘法-text-Multipcation"><span class="nav-number">1.2.5.</span> <span class="nav-text">乘法($\text{Multipcation}$)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#text-Data-Lab"><span class="nav-number">2.</span> <span class="nav-text">$\text{Data Lab}$</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">2.1.</span> <span class="nav-text">综述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#text-datalab-handout"><span class="nav-number">2.1.1.</span> <span class="nav-text">$\text{datalab-handout}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自测-使用工具"><span class="nav-number">2.1.2.</span> <span class="nav-text">自测/使用工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#text-dlc-btest-driver-pl"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">$\text{dlc/btest/driver.pl}$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text-ishow-fshow"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">$\text{ishow/fshow}$</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规则描述8"><span class="nav-number">2.1.3.</span> <span class="nav-text">规则描述8</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#text-Int-规则"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">$\text{Int}$ 规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text-Float-规则"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">$\text{Float}$ 规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-Puzzles-笔记"><span class="nav-number">2.2.</span> <span class="nav-text">$\text{Puzzles}$ 笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#text-bitXor"><span class="nav-number">2.2.1.</span> <span class="nav-text">$\text{bitXor}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-tmin"><span class="nav-number">2.2.2.</span> <span class="nav-text">$\text{tmin}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-isTmax"><span class="nav-number">2.2.3.</span> <span class="nav-text">$\text{isTmax}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-allOddbits"><span class="nav-number">2.2.4.</span> <span class="nav-text">$\text{allOddbits}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-negate"><span class="nav-number">2.2.5.</span> <span class="nav-text">$\text{negate}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-isAsciiDigit"><span class="nav-number">2.2.6.</span> <span class="nav-text">$\text{isAsciiDigit}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-conditional"><span class="nav-number">2.2.7.</span> <span class="nav-text">$\text{conditional}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-isLessOrEqual"><span class="nav-number">2.2.8.</span> <span class="nav-text">$\text{isLessOrEqual}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-logicalNeg"><span class="nav-number">2.2.9.</span> <span class="nav-text">$\text{logicalNeg}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-howManyBits"><span class="nav-number">2.2.10.</span> <span class="nav-text">$\text{howManyBits}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-floatScale2"><span class="nav-number">2.2.11.</span> <span class="nav-text">$\text{floatScale2}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-floatFloat2int"><span class="nav-number">2.2.12.</span> <span class="nav-text">$\text{floatFloat2int}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-floatPower2"><span class="nav-number">2.2.13.</span> <span class="nav-text">$\text{floatPower2}$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-Self-Evaluate"><span class="nav-number">2.3.</span> <span class="nav-text">$\text{Self Evaluate}$</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#text-Bits-ints-and-float"><span class="nav-number">1.</span> <span class="nav-text">$\text{Bits, ints and float}$</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#text-Bits-amp-Ints"><span class="nav-number">1.1.</span> <span class="nav-text">$\text{Bits &amp; Ints}$</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无符号编码"><span class="nav-number">1.1.1.</span> <span class="nav-text">无符号编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制补码编码"><span class="nav-number">1.1.2.</span> <span class="nav-text">二进制补码编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔代数"><span class="nav-number">1.1.3.</span> <span class="nav-text">布尔代数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些杂记"><span class="nav-number">1.1.4.</span> <span class="nav-text">一些杂记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-Float-2"><span class="nav-number">1.2.</span> <span class="nav-text">$\text{Float}$2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用二进制表示小数"><span class="nav-number">1.2.1.</span> <span class="nav-text">用二进制表示小数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-IEEE-Standard-754"><span class="nav-number">1.2.2.</span> <span class="nav-text">$\text{IEEE  Standard  754}$</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#规格化-text-Normalized"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">规格化($\text{Normalized}$)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非规格化-text-Denormalized"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">非规格化($\text{Denormalized}$)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特殊值-text-Special"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">特殊值($\text{Special}$)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#舍入-text-Rounding"><span class="nav-number">1.2.3.</span> <span class="nav-text">舍入($\text{Rounding}$)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些杂记-1"><span class="nav-number">1.2.4.</span> <span class="nav-text">一些杂记</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#text-Data-Lab"><span class="nav-number">2.</span> <span class="nav-text">$\text{Data Lab}$</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">2.1.</span> <span class="nav-text">综述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#text-datalab-handout"><span class="nav-number">2.1.1.</span> <span class="nav-text">$\text{datalab-handout}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自测-使用工具"><span class="nav-number">2.1.2.</span> <span class="nav-text">自测/使用工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#text-dlc-btest-driver-pl"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">$\text{dlc/btest/driver.pl}$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text-ishow-fshow"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">$\text{ishow/fshow}$</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规则描述8"><span class="nav-number">2.1.3.</span> <span class="nav-text">规则描述8</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#text-Int-规则"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">$\text{Int}$ 规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text-Float-规则"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">$\text{Float}$ 规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-Puzzles-笔记"><span class="nav-number">2.2.</span> <span class="nav-text">$\text{Puzzles}$ 笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#text-bitXor"><span class="nav-number">2.2.1.</span> <span class="nav-text">$\text{bitXor}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-tmin"><span class="nav-number">2.2.2.</span> <span class="nav-text">$\text{tmin}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-isTmax"><span class="nav-number">2.2.3.</span> <span class="nav-text">$\text{isTmax}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-allOddbits"><span class="nav-number">2.2.4.</span> <span class="nav-text">$\text{allOddbits}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-negate"><span class="nav-number">2.2.5.</span> <span class="nav-text">$\text{negate}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-isAsciiDigit"><span class="nav-number">2.2.6.</span> <span class="nav-text">$\text{isAsciiDigit}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-conditional"><span class="nav-number">2.2.7.</span> <span class="nav-text">$\text{conditional}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-isLessOrEqual"><span class="nav-number">2.2.8.</span> <span class="nav-text">$\text{isLessOrEqual}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-logicalNeg"><span class="nav-number">2.2.9.</span> <span class="nav-text">$\text{logicalNeg}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-howManyBits"><span class="nav-number">2.2.10.</span> <span class="nav-text">$\text{howManyBits}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-floatScale2"><span class="nav-number">2.2.11.</span> <span class="nav-text">$\text{floatScale2}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-floatFloat2int"><span class="nav-number">2.2.12.</span> <span class="nav-text">$\text{floatFloat2int}$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-floatPower2"><span class="nav-number">2.2.13.</span> <span class="nav-text">$\text{floatPower2}$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-Self-Evaluate"><span class="nav-number">2.3.</span> <span class="nav-text">$\text{Self Evaluate}$</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -973,7 +1066,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">143k</span>
+    <span title="站点总字数">144k</span>
 </div>
 
 

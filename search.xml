@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>「CSAPP学习笔记」 Data Lab</title>
-    <url>/2020/10/12/csappdatalab/</url>
+    <url>/2020/10/24/csappdatalab/</url>
     <content><![CDATA[<p>观看《深入了解计算机系统》(CSAPP) 和 CMU15213 后的笔记，与做$\text{Data Lab}$时遇到的困难与解答。</p>
 <a id="more"></a>
 <blockquote>
@@ -16,7 +16,31 @@
 <h3 id="二进制补码编码"><a href="#二进制补码编码" class="headerlink" title="二进制补码编码"></a>二进制补码编码</h3><blockquote>
 <p>$\text{Two’s-Complement Encoding}$</p>
 </blockquote>
-<p>$\text{B2T(X) = } -X_w * 2^n + \sum_{i \leq 0}^{n-1}{X_i} \qquad X_w = \text{sign bit}$</p>
+<p>$\text{B2T(X) = } -X_w * 2^n + \sum_{i \leq 0}^{n-1}{X_i} \qquad (X_w = \text{sign bit})$</p>
+<h3 id="布尔代数"><a href="#布尔代数" class="headerlink" title="布尔代数"></a>布尔代数</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">$\text{And}$</th>
+<th style="text-align:center">$\text{Or}$</th>
+<th style="text-align:center">$\text{Not}$</th>
+<th style="text-align:center">$\text{Xor}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/img/csapp_datalab_14.png" alt="and_ba"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_15.png" alt="or_ba"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_16.png" alt="Not_ba"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_17.png" alt="xor_ba"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>实例如下</p>
+</blockquote>
+<p><img src="/img/csapp_datalab_19.png" alt="tmp_ba"></p>
 <h3 id="一些杂记"><a href="#一些杂记" class="headerlink" title="一些杂记"></a>一些杂记</h3><ul>
 <li>$\text{Unsigned}$<ul>
 <li>$U_{max} = \text{0xFFFFFFFF} = 2^{32}-1$</li>
@@ -24,10 +48,51 @@
 </ul>
 </li>
 <li>$\text{Two’s-Complement}$<ul>
-<li>$T_{min} = \text{0x80000000}$</li>
-<li>$T_{max} = \text{0x7FFFFFFF}$</li>
+<li>$T_{min} = 10000… = \text{0x80000000}$</li>
+<li>$T_{max} = 01111… = \text{0x7FFFFFFF}$</li>
 <li>$T_{min} = -T_{max}-1$</li>
-<li>$\text{-1 = 0xFFFFFFFF}$</li>
+<li>$abs(T_{min}) = T_{min}$ <code>overflow</code> </li>
+<li>$\text{0xFFFFFFFF} = -1$</li>
+</ul>
+</li>
+<li>$\text{U2T  &amp;  T2U}$<ul>
+<li>$U_{max} = T_{max} \ll 1 + 1$</li>
+</ul>
+</li>
+<li>位扩展($\text{Sign Extension}$)<ul>
+<li>扩展k位 = 向右<strong>复制k位符号位</strong></li>
+</ul>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">理论公式</th>
+<th style="text-align:center">正数位扩展</th>
+<th style="text-align:center">负数位扩展</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/img/csapp_datalab_11.png" alt="sign extension"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_12.png" alt="po_sex"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_13.png" alt="neg_sex"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><code>&gt;&gt;</code> 右移 ($\text{Right shift}$)<ul>
+<li>逻辑右移($\text{Logical shift}$)<ul>
+<li><strong>特点：左侧都填充 <code>0</code></strong></li>
+</ul>
+</li>
+<li>算数右移($\text{Arithmetic shift}$)<ul>
+<li><strong>特点：左侧都填充的为 <code>符号位</code></strong></li>
+<li><strong>C语言默认为算数右移</strong></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -204,7 +269,25 @@
 </tbody>
 </table>
 </div>
-<h3 id="加法-text-Addition"><a href="#加法-text-Addition" class="headerlink" title="加法($\text{Addition}$)"></a>加法($\text{Addition}$)</h3><h3 id="乘法-text-Multipcation"><a href="#乘法-text-Multipcation" class="headerlink" title="乘法($\text{Multipcation}$)"></a>乘法($\text{Multipcation}$)</h3><h1 id="text-Data-Lab"><a href="#text-Data-Lab" class="headerlink" title="$\text{Data Lab}$"></a>$\text{Data Lab}$</h1><h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p><img src="/img/csapp_datalab_01.png" alt="The Puzzles"></p>
+<h3 id="一些杂记-1"><a href="#一些杂记-1" class="headerlink" title="一些杂记"></a>一些杂记</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">乘法($\text{Multipcation}$)</th>
+<th style="text-align:center">加法($\text{Addition}$)</th>
+<th style="text-align:center">加法的解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/img/csapp_datalab_20.png" alt="mul_fl"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_21.png" alt="add_fl"></td>
+<td style="text-align:center"><img src="/img/csapp_datalab_22.png" alt="add2_fl"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="text-Data-Lab"><a href="#text-Data-Lab" class="headerlink" title="$\text{Data Lab}$"></a>$\text{Data Lab}$</h1><h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p><img src="/img/csapp_datalab_01.png" alt="The Puzzles"></p>
 <h3 id="text-datalab-handout"><a href="#text-datalab-handout" class="headerlink" title="$\text{datalab-handout}$"></a>$\text{datalab-handout}$</h3><blockquote>
 <p>右上角带星号(*) 的 为可执行文件</p>
 </blockquote>
@@ -307,6 +390,7 @@
 <li>使用除了 <code>int</code>和<code>unsigned</code> 以外的其他数据结构，例 <code>arrays</code>，<code>structs</code>，<code>unions</code>….</li>
 <li>使用任何浮点指针数据类型，运算符 或 常量。</li>
 </ol>
+<hr>
 <h2 id="text-Puzzles-笔记"><a href="#text-Puzzles-笔记" class="headerlink" title="$\text{Puzzles}$ 笔记"></a>$\text{Puzzles}$ 笔记</h2><h3 id="text-bitXor"><a href="#text-bitXor" class="headerlink" title="$\text{bitXor}$"></a>$\text{bitXor}$</h3><p><strong>思路：</strong></p>
 <p>$\textbf{xor}$ 为 <code>同0，异1</code>，<code>a&amp;b</code>只会保留 <strong>全为1</strong> 的，而 <code>(~a)&amp;b</code> 只会保留 <code>a0/b1</code> 的，所以答案是 <code>a0/b1 | a1/b0</code>，那么只要用 <code>&amp;</code> 和 <code>~</code> 来复现 <code>|</code> 即可。</p>
 <p><strong>代码：</strong></p>
@@ -365,8 +449,12 @@
 <p><strong>代码：</strong></p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * conditional - same as x ? y : z </span></span><br><span class="line"><span class="comment"> *   Example: conditional(2,4,5) = 4</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 16</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">conditional</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = !x;</span><br><span class="line">    <span class="keyword">int</span> var2 = (~var1) + <span class="number">1</span>;</span><br><span class="line">    var1 = ~var2;</span><br><span class="line">    <span class="keyword">return</span> (var2&amp;y)^y^z^(var1&amp;z);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="text-isLessOrEqual"><a href="#text-isLessOrEqual" class="headerlink" title="$\text{isLessOrEqual}$"></a>$\text{isLessOrEqual}$</h3><p><strong>思路：</strong></p>
+<p>分类讨论三种情况，分别为<code>同号</code>，<code>异号</code>，<code>相等</code>。<br>如果不考虑溢出(即<code>同号</code>情况)，显然$x-y \leq 0$。</p>
+<blockquote>
+<p>小提示：由于当 y = $T_{min}$ 时，转化为 -y 会溢出，但是如果限定为同号，则不会对判断造成影响。</p>
+</blockquote>
 <p><strong>代码：</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * isLessOrEqual - if x &lt;= y  then return 1, else return 0 </span></span><br><span class="line"><span class="comment"> *   Example: isLessOrEqual(4,5) = 1.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 24</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isLessOrEqual</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = x&gt;&gt;<span class="number">31</span>;</span><br><span class="line">    <span class="keyword">int</span> var2 = y&gt;&gt;<span class="number">31</span>;</span><br><span class="line">    <span class="keyword">int</span> var3 = !(x^y);</span><br><span class="line">    <span class="keyword">int</span> var4 = (~y)+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> var5 = ((x+var4)&gt;&gt;<span class="number">31</span>)&amp;<span class="number">1</span>; <span class="comment">//x-y &lt; 0</span></span><br><span class="line">    <span class="keyword">int</span> var7 = (var1^var2)&amp;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> var8 = var7&amp;var1; <span class="comment">//1 when x&lt;0 + y&gt;0</span></span><br><span class="line">    <span class="keyword">int</span> var9 = !(var7&amp;var2); <span class="comment">//0 when x&gt;0 + y&lt;0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (var8|var3|var5)&amp;var9;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * isLessOrEqual - if x &lt;= y  then return 1, else return 0 </span></span><br><span class="line"><span class="comment"> *   Example: isLessOrEqual(4,5) = 1.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 24</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isLessOrEqual</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> var1 = x&gt;&gt;<span class="number">31</span>;</span><br><span class="line">    <span class="keyword">int</span> var2 = y&gt;&gt;<span class="number">31</span>;</span><br><span class="line">    <span class="keyword">int</span> var3 = !(x^y); <span class="comment">//x == y</span></span><br><span class="line">    <span class="keyword">int</span> var4 = (~y)+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> var5 = ((x+var4)&gt;&gt;<span class="number">31</span>)&amp;<span class="number">1</span>; <span class="comment">//x-y &lt; 0</span></span><br><span class="line">    <span class="keyword">int</span> var7 = (var1^var2)&amp;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> var8 = var7&amp;var1; <span class="comment">//1 when x&lt;0 + y&gt;0</span></span><br><span class="line">    <span class="keyword">int</span> var9 = !(var7&amp;var2); <span class="comment">//0 when x&gt;0 + y&lt;0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (var8|var3|var5)&amp;var9;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="text-logicalNeg"><a href="#text-logicalNeg" class="headerlink" title="$\text{logicalNeg}$"></a>$\text{logicalNeg}$</h3><p><strong>思路：</strong></p>
 <p>思路和 <code>isTmax</code> 相同，只有0的补码<code>^</code>源码 <code>= 0</code>，其余 <strong>最高位</strong> 都为<code>1</code>。</p>
 <p><strong>代码：</strong></p>
@@ -847,8 +935,8 @@ origin
       </categories>
       <tags>
         <tag>icpc</tag>
-        <tag>POJ</tag>
         <tag>dsu</tag>
+        <tag>POJ</tag>
       </tags>
   </entry>
   <entry>
@@ -881,8 +969,8 @@ origin
       </categories>
       <tags>
         <tag>icpc</tag>
-        <tag>POJ</tag>
         <tag>带权并查集</tag>
+        <tag>POJ</tag>
         <tag>离线</tag>
       </tags>
   </entry>
@@ -915,10 +1003,10 @@ origin
       </categories>
       <tags>
         <tag>icpc</tag>
-        <tag>POJ</tag>
         <tag>带权并查集</tag>
         <tag>dsu</tag>
         <tag>离散化</tag>
+        <tag>POJ</tag>
       </tags>
   </entry>
   <entry>
@@ -1583,10 +1671,10 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       </categories>
       <tags>
         <tag>icpc</tag>
-        <tag>数学</tag>
-        <tag>idea</tag>
         <tag>ABC</tag>
         <tag>AtCoder</tag>
+        <tag>数学</tag>
+        <tag>idea</tag>
       </tags>
   </entry>
   <entry>
@@ -1618,10 +1706,10 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
       </categories>
       <tags>
         <tag>icpc</tag>
-        <tag>ABC</tag>
-        <tag>AtCoder</tag>
         <tag>xor</tag>
         <tag>数位统计</tag>
+        <tag>ABC</tag>
+        <tag>AtCoder</tag>
       </tags>
   </entry>
   <entry>
@@ -2252,8 +2340,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
         <category>胡搞瞎搞💥</category>
       </categories>
       <tags>
-        <tag>Datastructures</tag>
         <tag>基础</tag>
+        <tag>Datastructures</tag>
         <tag>Exam</tag>
       </tags>
   </entry>
@@ -2701,8 +2789,8 @@ T &= k \times X + I \times D \ , \ \ I \in [\sum_{i=0}^{k-1}{i} , \sum_{i=1}^{k}
         <tag>icpc</tag>
         <tag>网络流</tag>
         <tag>最大流</tag>
-        <tag>超级源点/汇点</tag>
         <tag>POJ</tag>
+        <tag>超级源点/汇点</tag>
       </tags>
   </entry>
   <entry>
@@ -2837,9 +2925,9 @@ O(\log_2{n}) < O(n) < O(n\log_2{n}) < O(n^2) < O(n^3) < .... < O(2^n) < O(n!)</s
         <category>胡搞瞎搞💥</category>
       </categories>
       <tags>
+        <tag>基础</tag>
         <tag>Datastructures</tag>
         <tag>Learn</tag>
-        <tag>基础</tag>
       </tags>
   </entry>
   <entry>
@@ -3291,10 +3379,10 @@ O(\log_2{n}) < O(n) < O(n\log_2{n}) < O(n^2) < O(n^3) < .... < O(2^n) < O(n!)</s
         <category>胡搞瞎搞💥</category>
       </categories>
       <tags>
-        <tag>基础</tag>
         <tag>Programming Language</tag>
         <tag>Java</tag>
         <tag>快速上手</tag>
+        <tag>基础</tag>
       </tags>
   </entry>
   <entry>
