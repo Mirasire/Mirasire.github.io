@@ -19,6 +19,27 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>「CS143 - Compilers Notes」Formal Language</title>
+    <url>/2020/11/13/formal-language/</url>
+    <content><![CDATA[<blockquote>
+<p> <strong>主题 | 形式化语言(Formal Language)</strong><br> <strong>网课地址 | <a href="https://www.bilibili.com/video/BV1NE411376V?from=search&amp;seid=6662041642007513205" target="_blank" rel="noopener"><strong>Here</strong></a></strong></p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Def"><a href="#Def" class="headerlink" title="Def."></a>Def.</h1><p>Let $\sum$ be a set of characters (an alphabet(字母表)).</p>
+<p>A language over $\sum$ is a set of strings of characters drawn from $\sum$</p>
+]]></content>
+      <categories>
+        <category>MOOC</category>
+        <category>Stanford CS143</category>
+      </categories>
+      <tags>
+        <tag>CS143</tag>
+        <tag>Standford</tag>
+        <tag>Edx</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux笔记-如何使用GDB进行调试</title>
     <url>/2020/11/11/gdb/</url>
     <content><![CDATA[<p>TODO</p>

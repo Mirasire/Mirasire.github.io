@@ -55,6 +55,39 @@
   </entry>
   
   <entry>
+    <title>「CS143 - Compilers Notes」Formal Language</title>
+    <link href="http://mirasire.xyz/2020/11/13/formal-language/"/>
+    <id>http://mirasire.xyz/2020/11/13/formal-language/</id>
+    <published>2020-11-13T05:25:51.000Z</published>
+    <updated>2020-11-30T07:41:12.801Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p> <strong>主题 | 形式化语言(Formal Language)</strong><br> <strong>网课地址 | <a href="https://www.bilibili.com/video/BV1NE411376V?from=search&amp;seid=6662041642007513205" target="_blank" rel="noopener"><strong>Here</strong></a></strong></p></blockquote><a id="more"></a><h1 id="Def"><a href="#Def" class="headerlink" title="Def."></a>Def.</h1><p>Let $\sum$ be a set of characters (an alphabet(字母表)).</p><p>A language over $\sum$ is a set of strings of characters drawn from $\sum$</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt; &lt;strong&gt;主题 | 形式化语言(Formal Language)&lt;/strong&gt;&lt;br&gt; &lt;strong&gt;网课地址 | &lt;a href=&quot;https://www.bilibili.com/video/BV1NE411376V?from=search&amp;amp;seid=6662041642007513205&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;strong&gt;Here&lt;/strong&gt;&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="MOOC" scheme="http://mirasire.xyz/categories/MOOC/"/>
+    
+      <category term="Stanford CS143" scheme="http://mirasire.xyz/categories/MOOC/STANFORD-CS143/"/>
+    
+    
+      <category term="CS143" scheme="http://mirasire.xyz/tags/CS143/"/>
+    
+      <category term="Standford" scheme="http://mirasire.xyz/tags/STANDFORD/"/>
+    
+      <category term="Edx" scheme="http://mirasire.xyz/tags/EDX/"/>
+    
+      <category term="笔记" scheme="http://mirasire.xyz/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux笔记-如何使用GDB进行调试</title>
     <link href="http://mirasire.xyz/2020/11/11/gdb/"/>
     <id>http://mirasire.xyz/2020/11/11/gdb/</id>
@@ -534,35 +567,6 @@
       <category term="字符串" scheme="http://mirasire.xyz/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
       <category term="AC自动机" scheme="http://mirasire.xyz/tags/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>随机化算法-拉斯维加斯(Las Vegas)算法</title>
-    <link href="http://mirasire.xyz/2020/04/09/LASVEGAS/"/>
-    <id>http://mirasire.xyz/2020/04/09/LASVEGAS/</id>
-    <published>2020-04-09T08:23:28.000Z</published>
-    <updated>2020-11-24T06:09:12.065Z</updated>
-    
-    <content type="html"><![CDATA[<p>TODO</p><a id="more"></a><h1 id="理论知识"><a href="#理论知识" class="headerlink" title="理论知识"></a>理论知识</h1><h1 id="N-Queens-Problem"><a href="#N-Queens-Problem" class="headerlink" title="N-Queens Problem"></a>N-Queens Problem</h1><blockquote><p>问题描述</p></blockquote><h2 id="回溯法"><a href="#回溯法" class="headerlink" title="回溯法"></a>回溯法</h2><h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><h3 id="伪代码描述"><a href="#伪代码描述" class="headerlink" title="伪代码描述"></a>伪代码描述</h3><h3 id="时间复杂度分析"><a href="#时间复杂度分析" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h3><h2 id="Las-Vegas方法"><a href="#Las-Vegas方法" class="headerlink" title="Las Vegas方法"></a>Las Vegas方法</h2><h3 id="解决思路-1"><a href="#解决思路-1" class="headerlink" title="解决思路"></a>解决思路</h3><h3 id="伪代码描述-1"><a href="#伪代码描述-1" class="headerlink" title="伪代码描述"></a>伪代码描述</h3><h3 id="时间复杂度分析-1"><a href="#时间复杂度分析-1" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h3><h2 id="回溯法-Las-Vegas算法"><a href="#回溯法-Las-Vegas算法" class="headerlink" title="回溯法+Las Vegas算法"></a>回溯法+Las Vegas算法</h2><h3 id="解决思路-2"><a href="#解决思路-2" class="headerlink" title="解决思路"></a>解决思路</h3><h3 id="伪代码描述-2"><a href="#伪代码描述-2" class="headerlink" title="伪代码描述"></a>伪代码描述</h3><h3 id="时间复杂度分析-2"><a href="#时间复杂度分析-2" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h3><h2 id="关于Las-Vegas算法的总结"><a href="#关于Las-Vegas算法的总结" class="headerlink" title="关于Las Vegas算法的总结"></a>关于Las Vegas算法的总结</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;TODO&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="算法和数据结构" scheme="http://mirasire.xyz/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="算法" scheme="http://mirasire.xyz/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="随机化算法" scheme="http://mirasire.xyz/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/%E9%9A%8F%E6%9C%BA%E5%8C%96%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="随机化算法" scheme="http://mirasire.xyz/tags/%E9%9A%8F%E6%9C%BA%E5%8C%96%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="Las Vegas" scheme="http://mirasire.xyz/tags/LAS-VEGAS/"/>
     
   </entry>
   
